@@ -36,10 +36,10 @@ public class GraphicPlace extends Circle {
         label.layoutXProperty().bind(centerXProperty());
         label.layoutYProperty().bind(centerYProperty());
 
-        fillProperty().bind(Bindings.when(state.isEqualTo(GraphicPlaceState.IS_DEFAULT)).then(GraphicPlaceState.IS_DEFAULT.getColor())
-                .otherwise(state.get().getColor()));
-
-        //strokeProperty().bind(Bindings.when(selected.).then(Color.BLACK).otherwise(state.get().getColor()));
+        state.addListener((obs, oldState, newState) -> {
+            setFill(newState.getColor());
+        });
+        setFill(state.get().getColor());
 
         strokeWidthProperty().bind(Bindings.when(state.isEqualTo(GraphicPlaceState.IS_DEFAULT))
                 .then(GraphicPlaceState.IS_DEFAULT.getStrokeWidth())
@@ -48,7 +48,6 @@ public class GraphicPlace extends Circle {
         strokeProperty().bind(Bindings.when(selected)
                 .then(Color.BLACK)
                 .otherwise(Color.TRANSPARENT));
-
 
         setOnMousePressed(this::MousePressed);
         setOnMouseDragged(this::MouseDragged);

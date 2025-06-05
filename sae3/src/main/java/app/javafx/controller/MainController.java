@@ -167,9 +167,16 @@ public class MainController implements  DijkstraEventListener, Initializable{
             graphicPlace.setCenterX(100 + Math.random() * 600);
             graphicPlace.setCenterY(100 + Math.random() * 400);
             graphicPlace.setMainController(this);
+            if (place.isStart()) {
+                graphicPlace.setState(GraphicPlaceState.IS_START);
+            } else if (place.isEnd()) {
+                graphicPlace.setState(GraphicPlaceState.IS_END);
+            }
+
             associationPlaceGraphicPlace.put(place, graphicPlace);
             pane.getChildren().add(graphicPlace);
             pane.getChildren().add(graphicPlace.getLabel());
+            
         }
 
         // creer les graphic path
