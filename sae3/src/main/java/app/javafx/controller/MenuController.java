@@ -48,17 +48,17 @@ public class MenuController {
                 // Charger le monde depuis le fichier en utilisant WorldIO
                 World world = WorldIO.loadWorld(Files.newInputStream(file.toPath()));
                 mainController.actualWorld.set(world); // Met à jour la propriété actualWorld
-                mainController.launchDijkstra();
-                System.out.println("eu ba on est la ");
-                //System.out.println(world.toString());
+                mainController.reload(mainController.graphController.pane); // Met à jour et affiche le graphe
+                System.out.println("Monde chargé et affiché !");
             } catch (IOException e) {
                 e.printStackTrace();
-                // Gérer les erreurs de lecture du fichier
+                System.out.println("Erreur lors de la lecture du fichier JSON.");
             } catch (Exception e) {
                 e.printStackTrace();
-                // Gérer les erreurs de formatage ou autres exceptions
+                System.out.println("Erreur lors du traitement du monde.");
             }
         }
+
     }
 
     @FXML

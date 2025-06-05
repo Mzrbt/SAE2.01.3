@@ -21,6 +21,10 @@ public class GraphicPlace extends Circle {
     private BooleanProperty selected = new SimpleBooleanProperty(false);
     private Color color;
 
+    public GraphicPlace() {
+        this.place = null; // Initialisation par défaut
+        this.label = new Label("N/A");
+    }
     private MainController mainController;
 
     public GraphicPlace(Place place, double x, double y) {
