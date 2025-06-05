@@ -1,0 +1,447 @@
+  {
+    "world": "Sylvarant",
+    "places": [
+      {
+        "id": 1,
+        "name": "Iselia",
+        "description": "Un village paisible où les aventuriers commencent leur voyage.",
+        "start": true,
+        "end": false,
+        "defeat": false,
+        "monster": null
+      },
+      {
+        "id": 2,
+        "name": "Temple de Martel",
+        "description": "Un lieu sacré dédié à la déesse Martel.",
+        "start": false,
+        "end": false,
+        "defeat":  false,
+        "monster": {
+          "name": "Martel",
+          "HP": 150,
+          "Armor": 50,
+          "Attack": 30
+        }
+      },
+      {
+        "id": 3,
+        "name": "Triet",
+        "description": "Une petite oasis dans le désert, réputée pour son marché animé.",
+        "start": false,
+        "end": false,
+        "defeat":  false,
+        "monster": null
+      },
+      {
+        "id": 4,
+        "name": "Desert de Triet",
+        "description": "Un désert aride avec des tempêtes de sable imprévisibles.",
+        "start": false,
+        "end": false,
+        "defeat":  false,
+        "monster": {
+          "name": "",
+          "HP": 180,
+          "Armor": 70,
+          "Attack": 40
+        }
+      },
+      {
+        "id": 5,
+        "name": "Forêt de Gaoracchia",
+        "description": "Une forêt dense et mystérieuse, facile de s'y perdre.",
+        "start": false,
+        "end": false,
+        "defeat":  false,
+        "monster": null
+      },
+      {
+        "id": 6,
+        "name": "Ruines de Balacruf",
+        "description": "Anciennes ruines où reposent de nombreux mystères.",
+        "start": false,
+        "end": false,
+        "defeat":  false,
+        "monster": null
+      },
+      {
+        "id": 7,
+        "name": "Fjord de Thoda",
+        "description": "Un lieu glacial où le vent souffle constamment.",
+        "start": false,
+        "end": false,
+        "defeat":  false,
+        "monster": {
+          "name": "Thoda",
+          "HP": 200,
+          "Armor": 60,
+          "Attack": 35
+        }
+      },
+      {
+        "id": 8,
+        "name": "Palmacosta",
+        "description": "Une ville portuaire prospère et commerçante.",
+        "start": false,
+        "end": false,
+        "defeat":  false,
+        "monster": null
+      },
+      {
+        "id": 9,
+        "name": "tour du Salut",
+        "description": "Une tour mystique visible à des kilomètres, elle inspire crainte et respect.",
+        "start": false,
+        "end": true,
+        "defeat":  false,
+        "monster": null
+      },
+      {
+        "id": 10,
+        "name": "Mont Fooji",
+        "description": "Une montagne dangereuse avec des pentes escarpées.",
+        "start": false,
+        "end": false,
+        "defeat":  false,
+        "monster": {
+          "name": "Fooji",
+          "HP": 250,
+          "Armor": 80,
+          "Attack": 45
+        }
+      },
+      {
+        "id": 11,
+        "name": "Temple du Vent",
+        "description": "Un temple situé au sommet d'une montagne où le vent est omniprésent.",
+        "start": false,
+        "end": false,
+        "defeat":  false,
+        "monster": null
+      },
+      {
+        "id": 12,
+        "name": "Vallée de Hakonesia",
+        "description": "Une vallée mystérieuse entourée de montagnes.",
+        "start": false,
+        "end": false,
+        "defeat":  false,
+        "monster": null
+      },
+      {
+        "id": 13,
+        "name": "Asgard",
+        "description": "Une ville ancienne connue pour ses ruines et son histoire riche.",
+        "start": false,
+        "end": false,
+        "defeat":  false,
+        "monster": null
+      },
+      {
+        "id": 14,
+        "name": "Lac Umacy",
+        "description": "Un lac sacré avec des eaux cristallines.",
+        "start": false,
+        "end": false,
+        "defeat":  false,
+        "monster": {
+          "name": "",
+          "HP": 170,
+          "Armor": 55,
+          "Attack": 28
+        }
+      },
+      {
+        "id": 15,
+        "name": "Mizuho",
+        "description": "Un village caché où les ninjas s'entraînent.",
+        "start": false,
+        "end": false,
+        "defeat":  false,
+        "monster": null
+      },
+      {
+        "id": 16,
+        "name": "Temple de la Foudre",
+        "description": "Un temple dangereux où des éclairs frappent constamment. Vous avez été foudroyé, vous mourrez.",
+        "start": false,
+        "end": false,
+        "defeat":  true,
+        "monster": null
+      },
+      {
+        "id": 17,
+        "name": "Heimdall",
+        "description": "Le village caché des elfes.",
+        "start": false,
+        "end": false,
+        "defeat":  false,
+        "monster": {
+          "name": "Presea",
+          "HP": 220,
+          "Armor": 75,
+          "Attack": 50
+        }
+      },
+      {
+        "id": 18,
+        "name": "Forêt de Ymir",
+        "description": "Une forêt enchantée où la nature est vivante.",
+        "start": false,
+        "end": false,
+        "defeat":  false,
+        "monster": null
+      },
+      {
+        "id": 19,
+        "name": "Temple du Feu",
+        "description": "Un temple brûlant où le feu est omniprésent.",
+        "start": false,
+        "end": false,
+        "defeat":  false,
+        "monster": null
+      },
+      {
+        "id": 20,
+        "name": "Flanoir",
+        "description": "Un village enneigé et isolé au nord.",
+        "start": false,
+        "end": false,
+        "defeat":  false,
+        "monster": null
+      }
+    ],
+    "paths": [
+      {
+        "firstPlace": 1,
+        "secondPlace": 2,
+        "distance": 5
+      },
+      {
+        "firstPlace": 1,
+        "secondPlace": 3,
+        "distance": 4
+      },
+      {
+        "firstPlace": 1,
+        "secondPlace": 5,
+        "distance": 8
+      },
+      {
+        "firstPlace": 2,
+        "secondPlace": 4,
+        "distance": 7
+      },
+      {
+        "firstPlace": 2,
+        "secondPlace": 6,
+        "distance": 9
+      },
+      {
+        "firstPlace": 2,
+        "secondPlace": 7,
+        "distance": 10
+      },
+      {
+        "firstPlace": 3,
+        "secondPlace": 4,
+        "distance": 6
+      },
+      {
+        "firstPlace": 3,
+        "secondPlace": 8,
+        "distance": 12
+      },
+      {
+        "firstPlace": 3,
+        "secondPlace": 9,
+        "distance": 5
+      },
+      {
+        "firstPlace": 4,
+        "secondPlace": 6,
+        "distance": 7
+      },
+      {
+        "firstPlace": 4,
+        "secondPlace": 10,
+        "distance": 14
+      },
+      {
+        "firstPlace": 4,
+        "secondPlace": 11,
+        "distance": 9
+      },
+      {
+        "firstPlace": 5,
+        "secondPlace": 6,
+        "distance": 4
+      },
+      {
+        "firstPlace": 5,
+        "secondPlace": 9,
+        "distance": 10
+      },
+      {
+        "firstPlace": 5,
+        "secondPlace": 12,
+        "distance": 8
+      },
+      {
+        "firstPlace": 6,
+        "secondPlace": 7,
+        "distance": 6
+      },
+      {
+        "firstPlace": 6,
+        "secondPlace": 13,
+        "distance": 15
+      },
+      {
+        "firstPlace": 7,
+        "secondPlace": 8,
+        "distance": 11
+      },
+      {
+        "firstPlace": 7,
+        "secondPlace": 10,
+        "distance": 13
+      },
+      {
+        "firstPlace": 7,
+        "secondPlace": 14,
+        "distance": 9
+      },
+      {
+        "firstPlace": 8,
+        "secondPlace": 9,
+        "distance": 9
+      },
+      {
+        "firstPlace": 8,
+        "secondPlace": 15,
+        "distance": 14
+      },
+      {
+        "firstPlace": 9,
+        "secondPlace": 11,
+        "distance": 5
+      },
+      {
+        "firstPlace": 9,
+        "secondPlace": 16,
+        "distance": 11
+      },
+      {
+        "firstPlace": 10,
+        "secondPlace": 11,
+        "distance": 12
+      },
+      {
+        "firstPlace": 10,
+        "secondPlace": 17,
+        "distance": 10
+      },
+      {
+        "firstPlace": 11,
+        "secondPlace": 12,
+        "distance": 6
+      },
+      {
+        "firstPlace": 11,
+        "secondPlace": 18,
+        "distance": 15
+      },
+      {
+        "firstPlace": 12,
+        "secondPlace": 13,
+        "distance": 10
+      },
+      {
+        "firstPlace": 12,
+        "secondPlace": 19,
+        "distance": 13
+      },
+      {
+        "firstPlace": 13,
+        "secondPlace": 14,
+        "distance": 9
+      },
+      {
+        "firstPlace": 13,
+        "secondPlace": 17,
+        "distance": 8
+      },
+      {
+        "firstPlace": 14,
+        "secondPlace": 15,
+        "distance": 6
+      },
+      {
+        "firstPlace": 14,
+        "secondPlace": 20,
+        "distance": 7
+      },
+      {
+        "firstPlace": 15,
+        "secondPlace": 16,
+        "distance": 10
+      },
+      {
+        "firstPlace": 15,
+        "secondPlace": 18,
+        "distance": 11
+      },
+      {
+        "firstPlace": 16,
+        "secondPlace": 17,
+        "distance": 9
+      },
+      {
+        "firstPlace": 16,
+        "secondPlace": 19,
+        "distance": 12
+      },
+      {
+        "firstPlace": 17,
+        "secondPlace": 18,
+        "distance": 8
+      },
+      {
+        "firstPlace": 17,
+        "secondPlace": 20,
+        "distance": 14
+      },
+      {
+        "firstPlace": 18,
+        "secondPlace": 19,
+        "distance": 9
+      },
+      {
+        "firstPlace": 18,
+        "secondPlace": 20,
+        "distance": 5
+      },
+      {
+        "firstPlace": 19,
+        "secondPlace": 20,
+        "distance": 7
+      },
+      {
+        "firstPlace": 6,
+        "secondPlace": 14,
+        "distance": 10
+      },
+      {
+        "firstPlace": 10,
+        "secondPlace": 15,
+        "distance": 9
+      },
+      {
+        "firstPlace": 3,
+        "secondPlace": 16,
+        "distance": 13
+      }
+    ]
+  }

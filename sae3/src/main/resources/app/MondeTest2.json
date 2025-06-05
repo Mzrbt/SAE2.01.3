@@ -1,0 +1,101 @@
+{
+	"world": "Sylvarant",
+	"places": [
+	{
+      "id": 1,
+      "name": "Iselia village",
+      "description": "",
+      "start": false,
+      "end": false,
+      "defeat": false,
+      "monster": null
+    },
+	{
+      "id": 2,
+      "name": "Altaria",
+      "description": "",
+      "start": false,
+      "end": false,
+      "defeat": false,
+      "monster": null
+    },
+	{
+      "id": 3,
+      "name": "Triet",
+      "description": "",
+      "start": false,
+      "end": false,
+      "defeat": false,
+      "monster": null
+    },
+	{
+      "id": 4,
+      "name": "Izoold",
+      "description": "",
+      "start": false,
+      "end": false,
+      "defeat": false,
+      "monster": null
+    },
+	{
+      "id": 5,
+      "name": "Palmacosta",
+      "description": "",
+      "start": false,
+      "end": false,
+      "defeat": false,
+      "monster":  {
+       "name": "",
+        "HP": 100,
+        "Armor": 5,
+        "Attack": 10
+      }
+    },
+	{
+      "id": 6,
+      "name": "Hima",
+      "description": "",
+      "start": false,
+      "end": false,
+      "defeat": false,
+      "monster": null
+    }
+],
+	"paths": [
+	{
+      "firstPlace": 1,
+      "secondPlace": 2,
+      "distance": 10
+    },
+	{
+      "firstPlace": 1,
+      "secondPlace": 6,
+      "distance": 10
+    },
+	{
+      "firstPlace": 1,
+      "secondPlace": 4,
+      "distance": 20
+    },
+	{
+      "firstPlace": 1,
+      "secondPlace": 3,
+      "distance": 5
+    },
+	{
+      "firstPlace": 3,
+      "secondPlace": 6,
+      "distance": 10
+    },
+	{
+      "firstPlace": 4,
+      "secondPlace": 6,
+      "distance": 100
+    },
+	{
+      "firstPlace": 5,
+      "secondPlace": 2,
+      "distance": 40
+    }
+	]
+}
