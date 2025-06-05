@@ -1,17 +1,13 @@
 package app.javafx.controller;
 
 
-import app.javafx.model.GraphicPlace;
 import app.model.map.Path;
 import javafx.beans.binding.Bindings;
 import javafx.beans.property.SimpleObjectProperty;
-import javafx.beans.value.ObservableValue;
 import javafx.scene.control.Label;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Line;
 import javafx.scene.text.TextAlignment;
-
-import static app.javafx.controller.GraphicPlaceState.*;
 
 public class GraphicPath  extends Line {
 

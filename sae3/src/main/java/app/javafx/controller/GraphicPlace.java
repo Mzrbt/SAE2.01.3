@@ -1,4 +1,4 @@
-package app.javafx.model;
+package app.javafx.controller;
 
 import app.javafx.controller.GraphicPlaceState;
 import app.model.map.Place;
