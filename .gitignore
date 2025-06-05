@@ -1,0 +1,40 @@
+# Fichiers de compilation
+*.class
+
+# Logs
+*.log
+
+# Dossiers generes
+bin/
+out/
+
+# Parametres IntelliJ IDEA
+.idea/
+*.iml
+
+# Parametres Eclipse
+.project
+.classpath
+.settings/
+
+# Parametres VS Code
+.vscode/
+
+# Caches Maven et Gradle
+target/
+*.jar
+*.war
+*.ear
+.gradle/
+
+# Fichiers temporaires et systeme
+*.tmp
+*.swp
+.DS_Store
+Thumbs.db
+
+# JARs et fichiers externes
+lib/
+
+# Configurations specifiques a JavaFX
+fxlibs/
