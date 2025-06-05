@@ -9,4 +9,6 @@ module sae2025 {
 
     opens app to javafx.fxml;
     exports app;
+    exports;
+    opens to
 }
