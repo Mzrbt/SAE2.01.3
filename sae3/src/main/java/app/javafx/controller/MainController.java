@@ -11,10 +11,13 @@ import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.Pane;
 import javafx.util.Duration;
 import javafx.util.Pair;
 
+import java.awt.*;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -22,7 +25,7 @@ import java.util.List;
 import java.util.ResourceBundle;
 import java.util.concurrent.CompletableFuture;
 
-public class MainController implements  DijkstraEventListener{
+public class MainController implements  DijkstraEventListener, Initializable{
 
     @FXML
     public MenuController menuController;
@@ -32,7 +35,6 @@ public class MainController implements  DijkstraEventListener{
     public MondeController mondeController;
     @FXML
     public DjisktraVisualiseurController djisktraVisualiseurController;
-
 
     public ObjectProperty<Place> selectedPlace = new SimpleObjectProperty<>(null);
     public ObjectProperty<World> actualWorld = new SimpleObjectProperty<>(null);
@@ -51,11 +53,27 @@ public class MainController implements  DijkstraEventListener{
         mondeController.setMainController(this);
         djisktraVisualiseurController.setMainController(this);
 
+        graphController.pane.setStyle("-fx-background-color: grey;");
+
+        World w = new World("");
+
+        Place pl = new Place(2, "kf", null, w);
+        GraphicPlace gp = new GraphicPlace(pl);
+
+        w.addPlace(new Place(1, "lamano", null, w));
+
+        this.actualWorld.set(w);
+
+        graphController.pane.getChildren().add(gp);
     }
+
 
     public void launchDijkstra() {
 
-        Place place = selectedPlace.get();
+        Place place = actualWorld.get().getPlaceFromId(1);
+
+        //Place place = selectedPlace.get();
+        System.out.println("eu ba on est la 2");
 
         if (place != null) {
 
@@ -115,6 +133,8 @@ public class MainController implements  DijkstraEventListener{
                 timeline.play();
             });
 
+        } else {
+            System.out.println("place est null");
         }
 
         //CompletableFuture.completeAsync()

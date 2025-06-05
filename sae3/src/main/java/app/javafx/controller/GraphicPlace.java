@@ -23,6 +23,7 @@ public class GraphicPlace extends Circle {
 
 
     public GraphicPlace(Place place) {
+        super(2);
         this.place = place;
         this.label = new Label(Integer.toString(place.getId()));
 
@@ -58,8 +59,11 @@ public class GraphicPlace extends Circle {
             double difX = event.getSceneX() - getCenterX();
             double difY = event.getSceneY() - getCenterY();
 
-            setCenterX(getCenterX() + difX);
-            setCenterY(getCenterY() + difY);
+            //setCenterX(getCenterX() + difX);
+            //setCenterY(getCenterY() + difY);
+
+            this.centerXProperty().set(event.getX());
+            this.centerYProperty().set(event.getY());
 
             event.consume();
         }
