@@ -12,10 +12,12 @@ import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.Pane;
 import javafx.util.Duration;
 import javafx.util.Pair;
 
+import java.awt.*;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -23,7 +25,7 @@ import java.util.List;
 import java.util.ResourceBundle;
 import java.util.concurrent.CompletableFuture;
 
-public class MainController implements  DijkstraEventListener, Initializable {
+public class MainController implements  DijkstraEventListener, Initializable{
 
     @FXML
     public MenuController menuController;
@@ -33,7 +35,6 @@ public class MainController implements  DijkstraEventListener, Initializable {
     public MondeController mondeController;
     @FXML
     public DjisktraVisualiseurController djisktraVisualiseurController;
-
 
     public ObjectProperty<Place> selectedPlace = new SimpleObjectProperty<>(null);
     public ObjectProperty<World> actualWorld = new SimpleObjectProperty<>(null);
@@ -52,11 +53,40 @@ public class MainController implements  DijkstraEventListener, Initializable {
         mondeController.setMainController(this);
         djisktraVisualiseurController.setMainController(this);
 
+        graphController.pane.setStyle("-fx-background-color: grey;");
+        
+        World w = new World("Monde");
+        actualWorld.set(w);
+        
+        Place pl = new Place(2, "kf", null);
+        Place pl2 = new Place(2, "kf", null);
+        Path p1 = new Path(pl, pl2, 10);
+        
+        GraphicPlace gp = new GraphicPlace(pl, 50, 100);
+        GraphicPlace gp2 = new GraphicPlace(pl2, 50, 100);
+        GraphicPath gpa = new GraphicPath(gp, gp2, p1);
+        
+        actualWorld.get().addPlace(pl);
+        actualWorld.get().addPlace(pl2);
+        actualWorld.get().addPath(p1);
+        
+		/*
+		 * actualWorld.get().addPlace(pl); actualWorld.get().addPlace(pl2);
+		 * 
+		 * graphController.pane.getChildren().add(gp);
+		 * graphController.pane.getChildren().add(gp2);
+		 */
+        
+        reload(graphController.pane);
     }
+
 
     public void launchDijkstra() {
 
-        Place place = selectedPlace.get();
+        Place place = actualWorld.get().getPlaceFromId(1);
+
+        //Place place = selectedPlace.get();
+        System.out.println("eu ba on est la 2");
 
         if (place != null) {
 
@@ -116,6 +146,8 @@ public class MainController implements  DijkstraEventListener, Initializable {
                 timeline.play();
             });
 
+        } else {
+            System.out.println("place est null");
         }
 
         //CompletableFuture.completeAsync()
@@ -131,9 +163,9 @@ public class MainController implements  DijkstraEventListener, Initializable {
 
         // creer les graphic place
         for (Place place : actualWorld.get().getPlaces()) {
-            GraphicPlace graphicPlace = new GraphicPlace(place);
-            graphicPlace.setLayoutX(Math.random() * 600);
-            graphicPlace.setLayoutY(Math.random() * 400);
+            GraphicPlace graphicPlace = new GraphicPlace(place, 10, 20);
+            graphicPlace.setCenterX(100 + Math.random() * 600);
+            graphicPlace.setCenterY(100 + Math.random() * 400);
             associationPlaceGraphicPlace.put(place, graphicPlace);
             pane.getChildren().add(graphicPlace);
         }

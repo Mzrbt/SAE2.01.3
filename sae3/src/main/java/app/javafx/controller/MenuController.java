@@ -48,6 +48,9 @@ public class MenuController {
                 // Charger le monde depuis le fichier en utilisant WorldIO
                 World world = WorldIO.loadWorld(Files.newInputStream(file.toPath()));
                 mainController.actualWorld.set(world); // Met à jour la propriété actualWorld
+                mainController.launchDijkstra();
+                System.out.println("eu ba on est la ");
+                //System.out.println(world.toString());
             } catch (IOException e) {
                 e.printStackTrace();
                 // Gérer les erreurs de lecture du fichier

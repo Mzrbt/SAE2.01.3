@@ -58,10 +58,8 @@ public class DjisktraVisualiseurController {
     public void setMainController(MainController mainController) {
         this.mainController = mainController;
 
-        // Lier la propriété `selectedPlace` du MainController au contrôleur actuel
         mainController.selectedPlace.addListener((observable, oldPlace, newPlace) -> setSelectedPlace(newPlace));
 
-        // Initialiser la place actuellement sélectionnée (si elle existe)
         setSelectedPlace(mainController.selectedPlace.get());
     }
 
@@ -69,8 +67,7 @@ public class DjisktraVisualiseurController {
         this.selectedPlace = place;
 
         if (place != null) {
-            // Liaison des propriétés de l'objet Place avec l'interface
-            id.textProperty().bind(Bindings.convert(place.nameProperty()));
+            id.textProperty().bindBidirectional((place.nameProperty()));
             nomLieu.textProperty().bindBidirectional(place.nameProperty());
             descriptionLieu.textProperty().bindBidirectional(place.descriptionProperty());
             debut.selectedProperty().bindBidirectional(place.isStartProperty());
@@ -83,7 +80,6 @@ public class DjisktraVisualiseurController {
             monsterArmor.disableProperty().bind(isMonster.selectedProperty().not());
             monsterAttack.disableProperty().bind(isMonster.selectedProperty().not());
         }else {
-            // Réinitialiser les champs si aucun lieu n'est sélectionné
             id.textProperty().unbind();
             nomLieu.textProperty().unbind();
             descriptionLieu.textProperty().unbind();
@@ -93,7 +89,6 @@ public class DjisktraVisualiseurController {
             isMonster.selectedProperty().unbind();
         }
 
-        // Désactiver le bouton Dijkstra si aucune place n'est sélectionnée
         if (selectedPlace != null) {
             launchDijkstra.disableProperty().bind(Bindings.isNull((ObservableObjectValue<?>) selectedPlace));
         } else {

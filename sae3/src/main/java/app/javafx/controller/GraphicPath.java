@@ -23,22 +23,21 @@ public class GraphicPath  extends Line {
         this.PlaceFin = endPlace;
         this.path = path;
 
-        // definition des poitns de debuts et de fin de la Line
-        setStartX(PlaceDebut.getCenterX());
-        setStartY(PlaceDebut.getCenterY());
-        setEndX(PlaceFin.getCenterX());
-        setEndY(PlaceFin.getCenterY());
+        startXProperty().bind(startPlace.centerXProperty());
+        startYProperty().bind(startPlace.centerYProperty());
 
-        // la distance a afficher
-        distanceLabel.setLayoutX((PlaceDebut.getCenterX() + PlaceFin.getCenterX()) / 2);
-        distanceLabel.setLayoutY((PlaceDebut.getCenterY() + PlaceFin.getCenterY()) / 2);
+        endXProperty().bind(endPlace.centerXProperty());
+        endYProperty().bind(endPlace.centerYProperty());
 
         distanceLabel = new Label(String.valueOf(path.getLength()));
         distanceLabel.setTextAlignment(TextAlignment.CENTER);
 
-        distanceLabel.layoutXProperty().bind(Bindings.divide(Bindings.add(PlaceDebut.layoutXProperty() , PlaceFin.layoutXProperty()), 2));
-        distanceLabel.layoutYProperty().bind(Bindings.divide(Bindings.add(PlaceDebut.layoutYProperty() , PlaceFin.layoutYProperty()), 2));
+        distanceLabel.layoutXProperty().bind(Bindings.divide(Bindings.add(PlaceDebut.centerXProperty(), PlaceFin.centerXProperty()), 2));
+        distanceLabel.layoutYProperty().bind(Bindings.divide(Bindings.add(PlaceDebut.centerYProperty(), PlaceFin.centerYProperty()), 2));
 
+        strokeProperty().bind(Bindings.when(state.isEqualTo(GraphicPathState.DEFAULT)).then(Color.BLACK).otherwise(state.get().getColor()));
+        strokeWidthProperty().bind(Bindings.when(state.isEqualTo(GraphicPathState.DEFAULT)).then(2.0).otherwise(state.get().getStrokeWidth()));
+        distanceLabel.textFillProperty().bind(Bindings.when(state.isEqualTo(GraphicPathState.DEFAULT)).then(Color.BLACK).otherwise(state.get().getColor()));
 
 
         strokeProperty().bind(Bindings.when(state.isEqualTo(GraphicPathState.DEFAULT)).then(Color.BLACK).otherwise(state.get().getColor()));

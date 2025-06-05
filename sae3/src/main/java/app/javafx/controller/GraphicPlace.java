@@ -26,9 +26,11 @@ public class GraphicPlace extends Circle {
         this.label = new Label("N/A");
     }
 
-    public GraphicPlace(Place place) {
+    public GraphicPlace(Place place, double x, double y) {
+        super(x, y ,25);
         this.place = place;
         this.label = new Label(Integer.toString(place.getId()));
+        //this.selected = s;
 
         label.layoutXProperty().bind(centerXProperty());
         label.layoutYProperty().bind(centerYProperty());
@@ -36,7 +38,7 @@ public class GraphicPlace extends Circle {
         fillProperty().bind(Bindings.when(state.isEqualTo(GraphicPlaceState.IS_DEFAULT)).then(GraphicPlaceState.IS_DEFAULT.getColor())
                 .otherwise(state.get().getColor()));
 
-        strokeProperty().bind(Bindings.when(selected).then(Color.BLACK).otherwise(state.get().getColor()));
+        //strokeProperty().bind(Bindings.when(selected.).then(Color.BLACK).otherwise(state.get().getColor()));
 
         strokeWidthProperty().bind(Bindings.when(state.isEqualTo(GraphicPlaceState.IS_DEFAULT))
                 .then(GraphicPlaceState.IS_DEFAULT.getStrokeWidth())
@@ -62,8 +64,11 @@ public class GraphicPlace extends Circle {
             double difX = event.getSceneX() - getCenterX();
             double difY = event.getSceneY() - getCenterY();
 
-            setCenterX(getCenterX() + difX);
-            setCenterY(getCenterY() + difY);
+            //setCenterX(getCenterX() + difX);
+            //setCenterY(getCenterY() + difY);
+
+            this.centerXProperty().set(event.getX());
+            this.centerYProperty().set(event.getY());
 
             event.consume();
         }

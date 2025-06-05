@@ -23,10 +23,8 @@ public class ClicGauche implements CenterMouseEvent{
     public void mouseDragged(MouseEvent e) {
         double difX = e.getSceneX() - pointDebut.getX();
         double difY = e.getSceneY() - pointDebut.getY();
-        //pane.setTranslateX(pane.getTranslateX() + difX);
         pane.translateXProperty().set(pane.getTranslateX() + difX);
         pane.translateYProperty().set(pane.getTranslateY() + difY);
-        //pane.setTranslateY(pane.getTranslateY() + difY);
         pointDebut = new Point2D(e.getSceneX(), e.getSceneY());
     }
 
