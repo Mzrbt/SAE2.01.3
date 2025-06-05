@@ -1,7 +1,6 @@
 package app.javafx.controller;
 
 import app.ai.world.WorldAnalyzer;
-import app.javafx.model.GraphicPlace;
 import app.model.map.Path;
 import app.model.map.Place;
 import app.model.map.World;
