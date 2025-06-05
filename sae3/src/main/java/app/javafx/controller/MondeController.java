@@ -1,5 +1,6 @@
 package app.javafx.controller;
 
+import app.model.map.World;
 import javafx.fxml.FXML;
 import javafx.beans.binding.Bindings;
 import javafx.beans.property.IntegerProperty;
@@ -10,6 +11,8 @@ import javafx.scene.control.Slider;
 import javafx.scene.control.Button;
 import javafx.scene.control.ProgressBar;
 import app.ai.world.WorldGenerator;
+
+import javafx.scene.control.CheckBox;
 import java.util.concurrent.CompletableFuture;
 
 
@@ -27,6 +30,9 @@ public class MondeController {
 
     @FXML
     private Button generateButton;
+
+    @FXML
+    private CheckBox checkboxAI;
 
     @FXML
     private ProgressBar progressBar;
@@ -115,33 +121,47 @@ public class MondeController {
         int places = Integer.parseInt(nbPlace.getText());
         double startPercentage = sliderDepart.getValue() / 100.0;
         double defeatPercentage = sliderDefaite.getValue() / 100.0;
-        boolean withAI = true;
 
         WorldGenerator generator = WorldGenerator.builder()
                 .name("Mon Monde")
                 .nbPlace(places)
                 .percentageStartPoint(startPercentage)
                 .percentageDefeatPoint(defeatPercentage)
-                .withAIGeneration(withAI)
+                .withAIGeneration(checkboxAI.isSelected())
                 .build();
 
-        if (withAI) {
+        if (checkboxAI.isSelected()) {
+            // Si une génération avec AI est activée
             progressBar.setVisible(true);
             progressBar.setProgress(0);
 
             CompletableFuture.runAsync(() -> {
-                generator.generate(place -> {
-                    // Mettre à jour la ProgressBar dans le thread JavaFX
+                // Lancement de la génération du monde
+                World world = generator.generate(place -> {
+                    // Mise à jour de la barre de progression dans le thread UI
                     javafx.application.Platform.runLater(() -> {
                         double progress = (double) place.getId() / places;
                         progressBar.setProgress(progress);
                     });
                 });
-            }).thenRun(() -> {
-                javafx.application.Platform.runLater(() -> progressBar.setVisible(false));
+
+                // Mise à jour dans le thread UI une fois terminé
+                javafx.application.Platform.runLater(() -> {
+                    progressBar.setVisible(false);
+                    mainController.actualWorld.set(world);
+                    mainController.reload(mainController.graphController.pane);
+                    System.out.println("Monde généré avec succès !");
+                });
             });
+
         } else {
-            generator.generate(place -> {});
+            // Génération sans AI
+            World world = generator.generate(place -> {});
+            mainController.actualWorld.set(world);
+            mainController.reload(mainController.graphController.pane);
+            System.out.println("Monde généré avec succès !");
         }
+
+
     }
 }
