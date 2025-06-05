@@ -20,7 +20,7 @@ public class App extends Application {
 
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("interface.fxml"));
         Parent root = fxmlLoader.load();
-        scene = new Scene(root, 640, 400);
+        scene = new Scene(root, 840, 600);
         stage.setScene(scene);
 
         MainController controller = fxmlLoader.getController();
