@@ -29,7 +29,7 @@ public class DjisktraVisualiseurController {
     private ToggleButton defaite;
 
     @FXML
-    private CheckBox ismonster;
+    private CheckBox isMonster;
 
     @FXML
     private HBox monsterName;
@@ -77,11 +77,11 @@ public class DjisktraVisualiseurController {
             fin.selectedProperty().bindBidirectional(place.isEndProperty());
             defaite.selectedProperty().bindBidirectional(place.isDefeatProperty());
 
-            ismonster.selectedProperty().bindBidirectional((Property<Boolean>) place.monsterProperty().isNotNull());
-            monsterName.disableProperty().bind(ismonster.selectedProperty().not());
-            monsterHP.disableProperty().bind(ismonster.selectedProperty().not());
-            monsterArmor.disableProperty().bind(ismonster.selectedProperty().not());
-            monsterAttack.disableProperty().bind(ismonster.selectedProperty().not());
+            isMonster.selectedProperty().bindBidirectional((Property<Boolean>) place.monsterProperty().isNotNull());
+            monsterName.disableProperty().bind(isMonster.selectedProperty().not());
+            monsterHP.disableProperty().bind(isMonster.selectedProperty().not());
+            monsterArmor.disableProperty().bind(isMonster.selectedProperty().not());
+            monsterAttack.disableProperty().bind(isMonster.selectedProperty().not());
         }else {
             // Réinitialiser les champs si aucun lieu n'est sélectionné
             id.textProperty().unbind();
@@ -90,7 +90,7 @@ public class DjisktraVisualiseurController {
             debut.selectedProperty().unbind();
             fin.selectedProperty().unbind();
             defaite.selectedProperty().unbind();
-            ismonster.selectedProperty().unbind();
+            isMonster.selectedProperty().unbind();
         }
 
         // Désactiver le bouton Dijkstra si aucune place n'est sélectionnée
