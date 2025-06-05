@@ -82,9 +82,22 @@ public class DjisktraVisualiseurController {
             monsterHP.disableProperty().bind(ismonster.selectedProperty().not());
             monsterArmor.disableProperty().bind(ismonster.selectedProperty().not());
             monsterAttack.disableProperty().bind(ismonster.selectedProperty().not());
+        }else {
+            // Réinitialiser les champs si aucun lieu n'est sélectionné
+            id.textProperty().unbind();
+            nomLieu.textProperty().unbind();
+            descriptionLieu.textProperty().unbind();
+            debut.selectedProperty().unbind();
+            fin.selectedProperty().unbind();
+            defaite.selectedProperty().unbind();
+            ismonster.selectedProperty().unbind();
         }
 
         // Désactiver le bouton Dijkstra si aucune place n'est sélectionnée
-        launchDijkstra.disableProperty().bind(Bindings.isNull((ObservableObjectValue<?>) selectedPlace));
+        if (selectedPlace != null) {
+            launchDijkstra.disableProperty().bind(Bindings.isNull((ObservableObjectValue<?>) selectedPlace));
+        } else {
+            launchDijkstra.setDisable(true);
+        }
     }
 }

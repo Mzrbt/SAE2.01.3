@@ -22,8 +22,8 @@ public class MainController implements Initializable {
     @FXML public DjisktraVisualiseurController djisktraVisualiseurController;
 
 
-    public ObjectProperty<Place> selectedPlace = new SimpleObjectProperty<>();
-    public ObjectProperty<World> actualWorld = new SimpleObjectProperty<>();
+    public ObjectProperty<Place> selectedPlace = new SimpleObjectProperty<>(null);
+    public ObjectProperty<World> actualWorld = new SimpleObjectProperty<>(null);
     public BooleanProperty dijkstraOn = new SimpleBooleanProperty(false);
     public BooleanProperty worldLoading = new SimpleBooleanProperty(false);
 
