@@ -252,6 +252,20 @@ public class MainController implements  DijkstraEventListener, Initializable{
         for (GraphicPlace gp : associationPlaceGraphicPlace.values()) {
             gp.getSelectedProperty().set(gp == selectedGp);
         }
+        
+        selectedPlace.set(selectedGp.getPlace());
+
+        for (GraphicPath gp : associationPathGraphicPath.values()) {
+        	if (gp.strokeWidthProperty().isBound()) {
+                gp.strokeWidthProperty().unbind();
+            }
+            if (gp.getPath().getFirstPlace() == selectedGp.getPlace() ||
+                gp.getPath().getSecondPlace() == selectedGp.getPlace()) {
+                gp.setStrokeWidth(5);
+            } else {
+                gp.setStrokeWidth(2);
+            }
+        }
     }
 
 }

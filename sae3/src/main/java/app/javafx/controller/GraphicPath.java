@@ -54,6 +54,10 @@ public class GraphicPath  extends Line {
         return distanceLabel;
     }
     
+    public Path getPath() {
+    	return path;
+    }
+    
     public void setState(GraphicPathState newState) {
         this.state.set(newState);
 

@@ -2,7 +2,9 @@ package app.javafx.controller;
 
 import app.model.map.Place;
 import javafx.beans.binding.Bindings;
+import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.Property;
+import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.value.ObservableObjectValue;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
@@ -46,7 +48,7 @@ public class DjisktraVisualiseurController {
     @FXML
     private Button launchDijkstra;
 
-    private Place selectedPlace;
+    private ObjectProperty<Place> selectedPlace = new SimpleObjectProperty<>();
 
     private MainController mainController;
 
@@ -59,12 +61,12 @@ public class DjisktraVisualiseurController {
         this.mainController = mainController;
 
         mainController.selectedPlace.addListener((observable, oldPlace, newPlace) -> setSelectedPlace(newPlace));
-
         setSelectedPlace(mainController.selectedPlace.get());
+
     }
 
     public void setSelectedPlace(Place place) {
-        this.selectedPlace = place;
+        this.selectedPlace.set(place);
 
         if (place != null) {
             id.textProperty().bindBidirectional((place.nameProperty()));
@@ -74,7 +76,7 @@ public class DjisktraVisualiseurController {
             fin.selectedProperty().bindBidirectional(place.isEndProperty());
             defaite.selectedProperty().bindBidirectional(place.isDefeatProperty());
 
-            isMonster.selectedProperty().bindBidirectional((Property<Boolean>) place.monsterProperty().isNotNull());
+            isMonster.selectedProperty().bind(place.monsterProperty().isNotNull());
             monsterName.disableProperty().bind(isMonster.selectedProperty().not());
             monsterHP.disableProperty().bind(isMonster.selectedProperty().not());
             monsterArmor.disableProperty().bind(isMonster.selectedProperty().not());
