@@ -3,7 +3,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<HBox xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" prefHeight="40.0" prefWidth="600.0" >
+<HBox xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" prefHeight="40.0" prefWidth="600.0" fx:controller="app.javafx.controller.MenuController">
     <Button fx:id="loadButton" text="Load a World"/>
     <Button fx:id="saveButton" text="Save a World"/>
 </HBox>
