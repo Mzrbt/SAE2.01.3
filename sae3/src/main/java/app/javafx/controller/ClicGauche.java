@@ -7,7 +7,6 @@ import javafx.scene.layout.Pane;
 
 public class ClicGauche implements CenterMouseEvent{
 
-
     private Point2D pointDebut;
     private Pane pane;
 
