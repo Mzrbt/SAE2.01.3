@@ -164,8 +164,8 @@ public class MainController implements  DijkstraEventListener, Initializable{
         // creer les graphic place
         for (Place place : actualWorld.get().getPlaces()) {
             GraphicPlace graphicPlace = new GraphicPlace(place, 10, 20);
-            graphicPlace.setLayoutX(Math.random() * 600);
-            graphicPlace.setLayoutY(Math.random() * 400);
+            graphicPlace.setCenterX(100 + Math.random() * 600);
+            graphicPlace.setCenterY(100 + Math.random() * 400);
             associationPlaceGraphicPlace.put(place, graphicPlace);
             pane.getChildren().add(graphicPlace);
         }

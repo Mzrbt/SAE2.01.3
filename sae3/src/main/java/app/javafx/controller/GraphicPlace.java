@@ -23,7 +23,7 @@ public class GraphicPlace extends Circle {
 
 
     public GraphicPlace(Place place, double x, double y) {
-        super(x, y ,30);
+        super(x, y ,25);
         this.place = place;
         this.label = new Label(Integer.toString(place.getId()));
         //this.selected = s;
