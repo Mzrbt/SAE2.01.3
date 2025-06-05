@@ -8,15 +8,15 @@
 
 <BorderPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="app.javafx.controller.MainController" prefHeight="400.0" prefWidth="600.0">
     <top>
-        <fx:include source ="menu.fxml"/>
+        <fx:include source ="menu.fxml" fx:id="menu"/>
     </top>
     <center>
-        <fx:include source ="graph.fxml"/>
+        <fx:include source ="graph.fxml" fx:id="graph"/>
     </center>
     <right>
-        <fx:include source ="djisktraVisualiseur.fxml"/>
+        <fx:include source ="djisktraVisualiseur.fxml" fx:id="djisktraVisualiseur"/>
     </right>
     <left>
-        <fx:include source ="monde.fxml"/>
+        <fx:include source ="monde.fxml" fx:id="monde"/>
     </left>
 </BorderPane>

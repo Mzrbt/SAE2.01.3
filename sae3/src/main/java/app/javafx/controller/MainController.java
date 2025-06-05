@@ -7,11 +7,12 @@ import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class MainController {
+public class MainController implements Initializable {
 
     @FXML
     public MenuController menuController;
@@ -26,6 +27,7 @@ public class MainController {
     public BooleanProperty dijkstraOn = new SimpleBooleanProperty(false);
     public BooleanProperty worldLoading = new SimpleBooleanProperty(false);
 
+    @Override
     public void initialize(URL location, ResourceBundle resources) {
 
         menuController.setMainController(this);
