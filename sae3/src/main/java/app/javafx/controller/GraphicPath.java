@@ -22,6 +22,7 @@ public class GraphicPath  extends Line {
         this.PlaceDebut = startPlace;
         this.PlaceFin = endPlace;
         this.path = path;
+        this.distanceLabel = new Label(Integer.toString(path.getLength()));
 
         startXProperty().bind(startPlace.centerXProperty());
         startYProperty().bind(startPlace.centerYProperty());
@@ -49,6 +50,10 @@ public class GraphicPath  extends Line {
         toBack();
     }
 
+    public Label getLabel() {
+        return distanceLabel;
+    }
+    
     public void setState(GraphicPathState newState) {
         this.state.set(newState);
 

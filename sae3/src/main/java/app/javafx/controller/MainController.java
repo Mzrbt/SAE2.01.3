@@ -59,7 +59,7 @@ public class MainController implements  DijkstraEventListener, Initializable{
         actualWorld.set(w);
         
         Place pl = new Place(2, "kf", null);
-        Place pl2 = new Place(2, "kf", null);
+        Place pl2 = new Place(3, "kf", null);
         Path p1 = new Path(pl, pl2, 10);
         
         GraphicPlace gp = new GraphicPlace(pl, 50, 100);
@@ -166,8 +166,10 @@ public class MainController implements  DijkstraEventListener, Initializable{
             GraphicPlace graphicPlace = new GraphicPlace(place, 10, 20);
             graphicPlace.setCenterX(100 + Math.random() * 600);
             graphicPlace.setCenterY(100 + Math.random() * 400);
+            graphicPlace.setMainController(this);
             associationPlaceGraphicPlace.put(place, graphicPlace);
             pane.getChildren().add(graphicPlace);
+            pane.getChildren().add(graphicPlace.getLabel());
         }
 
         // creer les graphic path
@@ -177,6 +179,7 @@ public class MainController implements  DijkstraEventListener, Initializable{
             GraphicPath graphicPath = new GraphicPath(associationPlaceGraphicPlace.get(depart), associationPlaceGraphicPlace.get(arrive), path);
             associationPathGraphicPath.put(path, graphicPath);
             pane.getChildren().add(graphicPath);
+            pane.getChildren().add(graphicPath.getLabel());
         }
     }
 
@@ -237,5 +240,12 @@ public class MainController implements  DijkstraEventListener, Initializable{
     public void tearDown() {
 
     }
+    
+    public void selectGraphicPlace(GraphicPlace selectedGp) {
+        for (GraphicPlace gp : associationPlaceGraphicPlace.values()) {
+            gp.getSelectedProperty().set(gp == selectedGp);
+        }
+    }
+
 }
 
