@@ -166,6 +166,7 @@ public class MainController implements  DijkstraEventListener, Initializable{
             GraphicPlace graphicPlace = new GraphicPlace(place, 10, 20);
             graphicPlace.setCenterX(100 + Math.random() * 600);
             graphicPlace.setCenterY(100 + Math.random() * 400);
+            graphicPlace.setMainController(this);
             associationPlaceGraphicPlace.put(place, graphicPlace);
             pane.getChildren().add(graphicPlace);
         }
@@ -237,5 +238,12 @@ public class MainController implements  DijkstraEventListener, Initializable{
     public void tearDown() {
 
     }
+    
+    public void selectGraphicPlace(GraphicPlace selectedGp) {
+        for (GraphicPlace gp : associationPlaceGraphicPlace.values()) {
+            gp.getSelectedProperty().set(gp == selectedGp);
+        }
+    }
+
 }
 

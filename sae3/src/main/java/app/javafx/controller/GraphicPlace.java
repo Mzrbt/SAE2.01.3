@@ -21,6 +21,7 @@ public class GraphicPlace extends Circle {
     private BooleanProperty selected = new SimpleBooleanProperty(false);
     private Color color;
 
+    private MainController mainController;
 
     public GraphicPlace(Place place, double x, double y) {
         super(x, y ,25);
@@ -39,6 +40,11 @@ public class GraphicPlace extends Circle {
         strokeWidthProperty().bind(Bindings.when(state.isEqualTo(GraphicPlaceState.IS_DEFAULT))
                 .then(GraphicPlaceState.IS_DEFAULT.getStrokeWidth())
                 .otherwise(state.get().getStrokeWidth()));
+        
+        strokeProperty().bind(Bindings.when(selected)
+                .then(Color.BLACK)
+                .otherwise(Color.TRANSPARENT));
+
 
         setOnMousePressed(this::MousePressed);
         setOnMouseDragged(this::MouseDragged);
@@ -47,9 +53,15 @@ public class GraphicPlace extends Circle {
     //if (jean vilar){
     //    oui
     //}
+    
+    public void setMainController(MainController controller) {
+        this.mainController = controller;
+    }
 
     private void MousePressed(MouseEvent event) {
         if (event.getButton() == MouseButton.PRIMARY) {
+        	MainController controller = mainController;
+        	controller.selectGraphicPlace(this);
             selected.set(true);
             event.consume();
         }
@@ -98,5 +110,6 @@ public class GraphicPlace extends Circle {
     //public void setFill(Color color){
       //  this.color.;
     //}
+
 
 }
