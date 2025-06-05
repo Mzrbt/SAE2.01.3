@@ -54,17 +54,30 @@ public class MainController implements  DijkstraEventListener, Initializable{
         djisktraVisualiseurController.setMainController(this);
 
         graphController.pane.setStyle("-fx-background-color: grey;");
-
-        World w = new World("");
-
-        Place pl = new Place(2, "kf", null, w);
+        
+        World w = new World("Monde");
+        actualWorld.set(w);
+        
+        Place pl = new Place(2, "kf", null);
+        Place pl2 = new Place(2, "kf", null);
+        Path p1 = new Path(pl, pl2, 10);
+        
         GraphicPlace gp = new GraphicPlace(pl, 50, 100);
-
-        w.addPlace(new Place(1, "lamano", null, w));
-
-        this.actualWorld.set(w);
-
-        graphController.pane.getChildren().add(gp);
+        GraphicPlace gp2 = new GraphicPlace(pl2, 50, 100);
+        GraphicPath gpa = new GraphicPath(gp, gp2, p1);
+        
+        actualWorld.get().addPlace(pl);
+        actualWorld.get().addPlace(pl2);
+        actualWorld.get().addPath(p1);
+        
+		/*
+		 * actualWorld.get().addPlace(pl); actualWorld.get().addPlace(pl2);
+		 * 
+		 * graphController.pane.getChildren().add(gp);
+		 * graphController.pane.getChildren().add(gp2);
+		 */
+        
+        reload(graphController.pane);
     }
 
 
