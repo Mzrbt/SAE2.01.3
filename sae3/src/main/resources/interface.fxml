@@ -6,9 +6,17 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="Interface"
-            prefHeight="400.0" prefWidth="600.0">
-
-</AnchorPane>
+<BorderPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="Interface" prefHeight="400.0" prefWidth="600.0">
+    <top>
+        <fx:include source ="menu.fxml"/>
+    </top>
+    <center>
+        <fx:include source ="graph.fxml"/>
+    </center>
+    <right>
+        <fx:include source ="djisktraVisualiseur.fxml"/>
+    </right>
+    <left>
+        <fx:include source ="monde.fxml"/>
+    </left>
+</BorderPane>
