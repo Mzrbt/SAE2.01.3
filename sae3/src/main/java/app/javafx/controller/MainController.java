@@ -14,4 +14,6 @@ public class MainController {
     public BooleanProperty dijkstraOn = new SimpleBooleanProperty(false);
     public BooleanProperty worldLoading = new SimpleBooleanProperty(false);
 
+
+
 }
