@@ -22,10 +22,11 @@ public class GraphicPlace extends Circle {
     private Color color;
 
 
-    public GraphicPlace(Place place) {
-        super(2);
+    public GraphicPlace(Place place, double x, double y) {
+        super(x, y ,30);
         this.place = place;
         this.label = new Label(Integer.toString(place.getId()));
+        //this.selected = s;
 
         label.layoutXProperty().bind(centerXProperty());
         label.layoutYProperty().bind(centerYProperty());
@@ -33,7 +34,7 @@ public class GraphicPlace extends Circle {
         fillProperty().bind(Bindings.when(state.isEqualTo(GraphicPlaceState.IS_DEFAULT)).then(GraphicPlaceState.IS_DEFAULT.getColor())
                 .otherwise(state.get().getColor()));
 
-        strokeProperty().bind(Bindings.when(selected).then(Color.BLACK).otherwise(state.get().getColor()));
+        //strokeProperty().bind(Bindings.when(selected.).then(Color.BLACK).otherwise(state.get().getColor()));
 
         strokeWidthProperty().bind(Bindings.when(state.isEqualTo(GraphicPlaceState.IS_DEFAULT))
                 .then(GraphicPlaceState.IS_DEFAULT.getStrokeWidth())

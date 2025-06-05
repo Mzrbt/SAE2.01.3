@@ -58,7 +58,7 @@ public class MainController implements  DijkstraEventListener, Initializable{
         World w = new World("");
 
         Place pl = new Place(2, "kf", null, w);
-        GraphicPlace gp = new GraphicPlace(pl);
+        GraphicPlace gp = new GraphicPlace(pl, 50, 100);
 
         w.addPlace(new Place(1, "lamano", null, w));
 
@@ -150,7 +150,7 @@ public class MainController implements  DijkstraEventListener, Initializable{
 
         // creer les graphic place
         for (Place place : actualWorld.get().getPlaces()) {
-            GraphicPlace graphicPlace = new GraphicPlace(place);
+            GraphicPlace graphicPlace = new GraphicPlace(place, 10, 20);
             graphicPlace.setLayoutX(Math.random() * 600);
             graphicPlace.setLayoutY(Math.random() * 400);
             associationPlaceGraphicPlace.put(place, graphicPlace);
