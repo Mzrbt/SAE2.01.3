@@ -8,5 +8,9 @@ module sae2025 {
     opens app.model.map;
 
     opens app to javafx.fxml;
+
+    exports app.javafx.controller;
+    opens app.javafx.controller to javafx.fxml;
+
     exports app;
 }
