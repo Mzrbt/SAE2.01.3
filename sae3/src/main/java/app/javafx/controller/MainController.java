@@ -34,8 +34,8 @@ public class MainController implements  DijkstraEventListener{
     public DjisktraVisualiseurController djisktraVisualiseurController;
 
 
-    public ObjectProperty<Place> selectedPlace = new SimpleObjectProperty<>();
-    public ObjectProperty<World> actualWorld = new SimpleObjectProperty<>();
+    public ObjectProperty<Place> selectedPlace = new SimpleObjectProperty<>(null);
+    public ObjectProperty<World> actualWorld = new SimpleObjectProperty<>(null);
     public BooleanProperty dijkstraOn = new SimpleBooleanProperty(false);
     public BooleanProperty worldLoading = new SimpleBooleanProperty(false);
     public List<DijkstraEventListener> dijListeners = new ArrayList<>();
@@ -43,6 +43,7 @@ public class MainController implements  DijkstraEventListener{
     private final HashMap<Place, GraphicPlace> associationPlaceGraphicPlace = new HashMap<>();
     public final HashMap<Path, GraphicPath> associationPathGraphicPath = new HashMap<>();
 
+    @Override
     public void initialize(URL location, ResourceBundle resources) {
 
         menuController.setMainController(this);

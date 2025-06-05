@@ -17,19 +17,19 @@
       <HBox alignment="CENTER_LEFT" spacing="10">
          <children>
             <Label minWidth="100" style="-fx-font-weight: bold;" text="id :" />
-            <TextField disable="true" />
+            <TextField fx:id="id" disable="true" />
          </children>
       </HBox>
       <HBox alignment="CENTER_LEFT" spacing="10">
          <children>
             <Label minWidth="100" style="-fx-font-weight: bold;" text="Nom du lieu :" />
-            <TextField />
+            <TextField fx:id="nomLieu" />
          </children>
       </HBox>
       <VBox alignment="CENTER_LEFT" spacing="10">
          <children>
             <Label minWidth="100" style="-fx-font-weight: bold;" text="Description du lieu :" />
-            <TextArea prefHeight="200.0" prefWidth="200.0" promptText="En arrivant dans ce lieu, vous rencontrez un petit gnôme...">
+            <TextArea fx:id="descriptionLieu" prefHeight="200.0" prefWidth="200.0" promptText="En arrivant dans ce lieu, vous rencontrez un petit gnôme...">
                <VBox.margin>
                   <Insets left="5.0" right="5.0" />
                </VBox.margin></TextArea>
@@ -37,36 +37,36 @@
       </VBox>
       <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0" spacing="3.0">
          <children>
-            <ToggleButton mnemonicParsing="false" text="Début" />
-            <ToggleButton mnemonicParsing="false" text="Fin" />
-            <ToggleButton mnemonicParsing="false" text="Défaite" />
+            <ToggleButton fx:id="debut" mnemonicParsing="false" text="Début" />
+            <ToggleButton fx:id="fin" mnemonicParsing="false" text="Fin" />
+            <ToggleButton fx:id="defaite" mnemonicParsing="false" text="Défaite" />
          </children>
       </HBox>
       <HBox prefHeight="100.0" prefWidth="200.0">
          <children>
-            <CheckBox mnemonicParsing="false" text="CheckBox" />
+            <CheckBox fx:id="isMonster" mnemonicParsing="false" text="CheckBox" />
             <Label text="Ce lieu possède un monstre" />
          </children>
       </HBox>
-      <HBox alignment="CENTER_LEFT" disable="true" spacing="10">
+      <HBox fx:id="monsterName" alignment="CENTER_LEFT" disable="true" spacing="10">
          <children>
             <Label minWidth="100" style="-fx-font-weight: bold;" text="Nom :" />
             <TextField promptText="1" />
          </children>
       </HBox>
-      <HBox alignment="CENTER_LEFT" disable="true" spacing="10">
+      <HBox fx:id="monsterHP" alignment="CENTER_LEFT" disable="true" spacing="10">
          <children>
             <Label minWidth="100" style="-fx-font-weight: bold;" text="HP" />
             <TextField promptText="Nombres maximum d'HP" />
          </children>
       </HBox>
-      <HBox alignment="CENTER_LEFT" disable="true" spacing="10">
+      <HBox fx:id="monsterArmor" alignment="CENTER_LEFT" disable="true" spacing="10">
          <children>
             <Label minWidth="100" style="-fx-font-weight: bold;" text="Armure" />
             <TextField promptText="10" />
          </children>
       </HBox>
-      <HBox alignment="CENTER_LEFT" disable="true" spacing="10">
+      <HBox fx:id="monsterAttack" alignment="CENTER_LEFT" disable="true" spacing="10">
          <children>
             <Label minWidth="100" style="-fx-font-weight: bold;" text="Attaque" />
             <TextField promptText="1O" />
@@ -74,7 +74,7 @@
       </HBox>
       <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0" spacing="3.0">
          <children>
-            <Button mnemonicParsing="false" text="Launch Dijkstra" />
+            <Button fx:id="launchDijkstra" mnemonicParsing="false" text="Launch Dijkstra" />
          </children>
       </HBox>
       <TableView prefHeight="200.0" prefWidth="200.0">
