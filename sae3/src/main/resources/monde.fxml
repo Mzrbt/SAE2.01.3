@@ -1,14 +1,110 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="Monde"
-            prefHeight="400.0" prefWidth="600.0">
-
-</AnchorPane>
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="539.0" prefWidth="257.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/16">
+  <columnConstraints>
+    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+  </columnConstraints>
+  <rowConstraints>
+    <RowConstraints maxHeight="129.0" minHeight="0.0" prefHeight="80.0" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="343.0" minHeight="10.0" prefHeight="138.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="343.0" minHeight="10.0" prefHeight="138.0" vgrow="SOMETIMES" />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" />
+  </rowConstraints>
+   <children>
+      <Label prefHeight="54.0" prefWidth="178.0" text="Générton d'un monde aléatoire" textAlignment="CENTER" GridPane.halignment="CENTER">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <GridPane prefHeight="95.0" prefWidth="257.0" GridPane.rowIndex="1">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="124.0" minWidth="10.0" prefWidth="96.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="161.0" minWidth="10.0" prefWidth="161.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints maxHeight="98.0" minHeight="0.0" prefHeight="55.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="234.0" minHeight="3.0" prefHeight="54.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label prefHeight="17.0" prefWidth="57.0" text="Nom">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label text="Nb de places" GridPane.rowIndex="1">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <TextArea maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="31.0" prefWidth="161.0" text="Nom Monde" GridPane.columnIndex="1" />
+            <TextArea maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="41.0" prefWidth="161.0" text="12" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+         </children>
+      </GridPane>
+      <GridPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="124.0" prefWidth="257.0" GridPane.rowIndex="2" GridPane.valignment="TOP">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints maxHeight="30.0" minHeight="7.0" prefHeight="24.0" />
+            <RowConstraints maxHeight="30.0" minHeight="7.0" prefHeight="17.0" />
+            <RowConstraints maxHeight="37.0" minHeight="10.0" prefHeight="24.0" />
+            <RowConstraints maxHeight="41.0" minHeight="10.0" prefHeight="24.0" />
+            <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="29.0" />
+        </rowConstraints>
+         <children>
+            <Label text="\% début">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label text="\% victoire" GridPane.rowIndex="1">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label text="\% défaite" GridPane.rowIndex="2">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label text="\% couverture" GridPane.rowIndex="4">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label text="\% autre" GridPane.rowIndex="3">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Slider GridPane.columnIndex="1" />
+            <Slider GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Slider GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Slider GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <Slider GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" text="0% (0)" GridPane.columnIndex="2" />
+            <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" text="0% (0)" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+            <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" text="0% (0)" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+            <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" text="0% (0)" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+            <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" text="0% (0)" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+         </children>
+      </GridPane>
+      <CheckBox mnemonicParsing="false" prefHeight="38.0" prefWidth="197.0" text="Avec génération des noms par IA" GridPane.rowIndex="5" />
+      <Button mnemonicParsing="false" text="Généreer un on aléatoire" GridPane.halignment="CENTER" GridPane.rowIndex="6" />
+   </children>
+</GridPane>
