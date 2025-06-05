@@ -1,9 +1,8 @@
 package app.javafx.controller;
 
-public class MondeController {
+public class DjisktraVisualiseurController {
 
     public void setMainController(MainController controller){
 
     }
-
 }
